@@ -6,6 +6,7 @@ import { Button } from "@/ShadComponents/ui/button";
 import { Input } from "@/ShadComponents/ui/input";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/ShadComponents/ui/carousel";
+import SearchBar from "./components/SearchBar";
 
 const containerStyle = {
   width: "100%",
@@ -18,8 +19,6 @@ const center = {
 };
 
 export default function Home() {
-  const [postalCode, setPostalCode] = useState("");
-  const [product, setProduct] = useState("");
 
   // Define carousel images
   const images = [
@@ -38,11 +37,6 @@ export default function Home() {
     }, 1500);
     return () => clearInterval(interval);
   }, [images.length]);
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <main className="min-h-screen">
@@ -70,21 +64,7 @@ export default function Home() {
             Down with Stars & Stripes, Buy from the Maple Leaf 🍁 <br></br>
             Find nearby farms and farmers markets in Ontario.
           </p>
-          <form onSubmit={handleSearch} className="flex w-full max-w-md gap-2">
-            <Input
-              type="text"
-              placeholder="Enter your postal code"
-              value={postalCode}
-              onChange={(e) => setPostalCode(e.target.value)}
-              className="bg-white/90"
-            />
-
-            <Input type="text" placeholder="Enter a product name" value="" />
-
-            <Button type="submit" className="bg-red-600 hover:bg-red-700">
-              <Search className="h-5 w-5" />
-            </Button>
-          </form>
+          <SearchBar />
         </div>
       </section>
 
