@@ -29,14 +29,20 @@ export default function Home() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section id="home" className="relative h-screen">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1500076656116-558758c991c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80")',
-          }}
+        {/* Background Video */}
+        <video 
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
         >
+          <source src="/backgroundVideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
           <div className="absolute inset-0 bg-black/40" />
-        </div>
+
         <div className="relative h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-6xl font-bold text-white text-center mb-8">
             Support Local Canadian Farms
