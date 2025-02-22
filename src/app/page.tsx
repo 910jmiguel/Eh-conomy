@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/ShadComponents/ui/button";
+import { Input } from "@/ShadComponents/ui/input";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/ShadComponents/ui/carousel";
 
 const containerStyle = {
   width: "100%",
