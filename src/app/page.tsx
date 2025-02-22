@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const containerStyle = {
   width: "100%",
@@ -20,10 +21,27 @@ export default function Home() {
   const [postalCode, setPostalCode] = useState("");
   const [product, setProduct] = useState("");
 
+  // Define carousel images
+  const images = [
+    "/carouselpic1.png",
+    "/carouselpic2.png",
+    "/carouselpic3.png"
+  ];
+
+  // State for tracking the current image index
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Automatically switch images every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 1500);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement postal code search and map centering
-    document.getElementById("map")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -89,13 +107,29 @@ export default function Home() {
                 and resilient food system.
               </p>
             </div>
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <img
-                src="https://images.unsplash.com/photo-1595855759920-86582396756c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                alt="Local farming"
-                className="w-full h-full object-cover"
-              />
-            </div>
+
+           {/* Auto-Switching Carousel Section */}
+          <div className="rounded-lg overflow-hidden shadow-xl">
+            <Carousel className="w-full max-w-lg mx-auto">
+              <CarouselContent>
+                {images.map((image, index) => (
+                  <CarouselItem
+                    key={index}
+                    className={`transition-opacity duration-700 ${index === currentIndex ? 'opacity-100' : 'hidden'}`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Slide ${index + 1}`}
+                      className="w-full h-auto rounded-lg"
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div>
+
           </div>
         </div>
       </section>
@@ -139,7 +173,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">Credits</h2>
           <div className="text-center">
             <p className="text-lg text-gray-700 mb-4">
-              Built with ❤️ to support Canadian agriculture and economy
+              Built with ❤️ to support Canadian agriculture and economy by {'Ayla, Miguel, Raghav and James! '}
             </p>
             <p className="text-gray-600">Map data from Google Maps</p>
           </div>
