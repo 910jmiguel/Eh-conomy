@@ -14,8 +14,8 @@ export const team: TeamMember[] = [
         school: "🎓 York University",
         image: "/miguel2.jpg",
         socials: {
-            github: "https://github.com/910miguel",
-            linkedin: "https://linkedin.com/in/miguel-advincula"
+            github: "https://github.com/910jmiguel",
+            linkedin: "https://www.linkedin.com/in/910jmiguel/"
         }
     },
     {
@@ -23,8 +23,8 @@ export const team: TeamMember[] = [
         school: "🎓 Wilfrid Laurier University",
         image: "/ayla.png",
         socials: {
-            github: "https://github.com/mahirrahman",
-            linkedin: "https://linkedin.com/in/mahir-rahman"
+            github: "https://github.com/aylat7",
+            linkedin: "https://linkedin.com/in/ayla-topuz"
         }
     },
     {
@@ -32,8 +32,8 @@ export const team: TeamMember[] = [
         school: "🎓 University of Toronto",
         image: "/james.jpg",
         socials: {
-            github: "https://github.com/nirujan",
-            linkedin: "https://linkedin.com/in/nirujan-loganathan"
+            github: "https://github.com/DonCozuuko",
+            linkedin: "https://www.linkedin.com/in/james-rim-ab9388331/"
         }
     },
     {
@@ -41,8 +41,8 @@ export const team: TeamMember[] = [
         school: "🎓 Wilfrid Laurier University",
         image: "/raghav.jpg",
         socials: {
-            github: "https://github.com/muhammad-hassan",
-            linkedin: "https://linkedin.com/in/muhammad-hassan"
+            github: "https://github.com/raghavkhare98",
+            linkedin: "https://www.linkedin.com/in/raghav-khare-50416a16b/"
         }
     }
 ];
