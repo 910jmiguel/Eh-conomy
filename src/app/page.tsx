@@ -124,8 +124,8 @@ export default function Home() {
               style={{ border: 0 }}
               loading="lazy"
               allowFullScreen
-              src={"https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=AIzaSyBeEfM6HLUgbUwEETtMk8c_iqqMC4ggv68"}
-            ></iframe>
+              src={`https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
+              ></iframe>
           </div>
         </div>
       </section>
