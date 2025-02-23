@@ -57,7 +57,7 @@ export default function Home() {
             Support Local Canadian Farms
           </h1>
           <p className="text-xl text-white text-center mb-8 max-w-2xl">
-            Down with Stars & Stripes, Buy from the Maple Leaf 🍁 <br></br>
+            Down with Stars & Stripes, buy from the Maple Leaf 🍁 <br></br>
             Find nearby farms and farmers markets in Ontario.
           </p>
           <SearchBar />
