@@ -13,6 +13,7 @@ import SearchBar from "./components/SearchBar";
 import { Card, CardContent } from "@/ShadComponents/ui/card";
 import { team } from "@/constants/team";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Image from "next/image";
 
 const containerStyle = {
   width: "100%",
@@ -103,11 +104,12 @@ export default function Home() {
                         index === currentIndex ? "opacity-100" : "hidden"
                       }`}
                     >
-                      <img
+                      <Image
                         src={image}
                         alt={`Slide ${index + 1}`}
+                        width={500}
+                        height={300}
                         className="w-full h-[300px] object-cover rounded-lg"
-                        style={{ maxWidth: "500px", maxHeight: "300px" }}
                       />
                     </CarouselItem>
                   ))}
@@ -157,14 +159,14 @@ export default function Home() {
             {team.map((member, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
-                  <div className="aspect-square mb-4 overflow-hidden rounded-lg">
-                    <img 
+                  <div className="aspect-square mb-4 overflow-hidden rounded-lg relative">
+                    <Image 
                       src={member.image} 
                       alt={member.name}
-                      className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.currentTarget.src = "https://via.placeholder.com/400x400?text=" + member.name;
-                      }}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                      priority={index < 4}
                     />
                   </div>
                   <h3 className="font-semibold text-lg mb-1">{member.name}</h3>

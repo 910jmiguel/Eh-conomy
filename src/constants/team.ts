@@ -11,8 +11,8 @@ interface TeamMember {
 export const team: TeamMember[] = [
     {
         name: "Miguel",
-        school: "York University",
-        image: "/team/miguel.jpg",
+        school: "🎓 York University",
+        image: "/miguel2.jpg",
         socials: {
             github: "https://github.com/910miguel",
             linkedin: "https://linkedin.com/in/miguel-advincula"
@@ -20,8 +20,8 @@ export const team: TeamMember[] = [
     },
     {
         name: "Ayla",
-        school: "Wilfrid Laurier University",
-        image: "/team/mahir.jpg",
+        school: "🎓 Wilfrid Laurier University",
+        image: "/ayla.png",
         socials: {
             github: "https://github.com/mahirrahman",
             linkedin: "https://linkedin.com/in/mahir-rahman"
@@ -29,8 +29,8 @@ export const team: TeamMember[] = [
     },
     {
         name: "James",
-        school: "University of Toronto",
-        image: "/team/nirujan.jpg",
+        school: "🎓 University of Toronto",
+        image: "/james.jpg",
         socials: {
             github: "https://github.com/nirujan",
             linkedin: "https://linkedin.com/in/nirujan-loganathan"
@@ -38,8 +38,8 @@ export const team: TeamMember[] = [
     },
     {
         name: "Raghav",
-        school: "Wilfrid Laurier University",
-        image: "/team/muhammad.jpg",
+        school: "🎓 Wilfrid Laurier University",
+        image: "/raghav.jpg",
         socials: {
             github: "https://github.com/muhammad-hassan",
             linkedin: "https://linkedin.com/in/muhammad-hassan"
