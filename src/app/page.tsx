@@ -18,7 +18,6 @@ const center = {
 };
 
 export default function Home() {
-
   // Define carousel images
   const images = [
     "/carouselpic1.png",
@@ -29,7 +28,7 @@ export default function Home() {
   // State for tracking the current image index
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Automatically switch images every 2 seconds
+  // Automatically switch images every 1.5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -60,7 +59,7 @@ export default function Home() {
             Support Local Canadian Farms
           </h1>
           <p className="text-xl text-white text-center mb-8 max-w-2xl">
-            Down with Stars & Stripes, buy from the Maple Leaf 🍁 <br></br>
+            Down with Stars & Stripes, buy from the Maple Leaf 🍁 <br />
             Find nearby farms and farmers markets in Ontario.
           </p>
           <SearchBar />
@@ -87,28 +86,30 @@ export default function Home() {
               </p>
             </div>
 
-           {/* Auto-Switching Carousel Section */}
-          <div className="rounded-lg overflow-hidden shadow-xl">
-            <Carousel className="w-full max-w-lg mx-auto">
-              <CarouselContent>
-                {images.map((image, index) => (
-                  <CarouselItem
-                    key={index}
-                    className={`transition-opacity duration-700 ${index === currentIndex ? 'opacity-100' : 'hidden'}`}
-                  >
-                    <img
-                      src={image}
-                      alt={`Slide ${index + 1}`}
-                      className="w-full h-auto rounded-lg"
-                    />
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </div>
-
+            {/* Fixed-Size Carousel Section */}
+            <div className="rounded-lg overflow-hidden shadow-none w-full max-w-lg mx-auto">
+              <Carousel className="w-full">
+                <CarouselContent className="flex justify-center items-center">
+                  {images.map((image, index) => (
+                    <CarouselItem
+                      key={index}
+                      className={`transition-opacity duration-700 ${
+                        index === currentIndex ? "opacity-100" : "hidden"
+                      }`}
+                    >
+                      <img
+                        src={image}
+                        alt={`Slide ${index + 1}`}
+                        className="w-full h-[300px] object-cover rounded-lg"
+                        style={{ maxWidth: "500px", maxHeight: "300px" }}
+                      />
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </div>
           </div>
         </div>
       </section>
@@ -128,7 +129,7 @@ export default function Home() {
               loading="lazy"
               allowFullScreen
               src={`https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
-              ></iframe>
+            ></iframe>
           </div>
         </div>
       </section>
