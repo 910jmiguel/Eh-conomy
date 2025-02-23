@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import { Navbar } from './components/navbar';
 import { Toaster } from '@/ShadComponents/ui/sonner';
 import Head from 'next/head';
-import { Footer } from 'react-day-picker';
+import Footer from './components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
