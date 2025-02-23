@@ -145,7 +145,7 @@ export default function Home() {
               style={{ border: 0 }}
               loading="lazy"
               allowFullScreen
-              src={`https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=AIzaSyBeEfM6HLUgbUwEETtMk8c_iqqMC4ggv68`}
+              src={`https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
             ></iframe>
           </div>
         </div>
@@ -162,9 +162,15 @@ export default function Home() {
               This project was created as part of HackCanada 2025, hosted at
               Wilfrid Laurier University, Waterloo, ON.
             </p>
-            <Image src="/group.jpg" alt="group photo" width={600} height={200} className="mx-auto pt-5" />
+            <Image
+              src="/group.jpg"
+              alt="group photo"
+              width={600}
+              height={200}
+              className="mx-auto pt-5"
+            />
           </div>
-         
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
