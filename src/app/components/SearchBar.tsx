@@ -35,7 +35,7 @@ const SearchBar = () => {
     <form onSubmit={handleSearch} className="flex w-full max-w-md gap-2 relative">
       <Input
         type="text"
-        placeholder="🌆 Enter city"
+        placeholder=" 🌆 Enter city"
         value={city}
         onChange={handleCityChange}
         className="bg-white/90"
@@ -63,7 +63,7 @@ const SearchBar = () => {
 
       <Input
         type="text"
-        placeholder="📦 Enter product"
+        placeholder="  📦 Enter product"
         value={product}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => setProduct(e.target.value)}
         className="bg-white/90"
