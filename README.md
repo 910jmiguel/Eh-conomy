@@ -2,7 +2,7 @@
 An application to help Canadians find local products, and to live a healthier lifestyle!
 
 ## ❓ Purpose
-We believe that Canadians are struggling with the ongoing tariff trade war. Thus, we create an app where it helps you discover nearby farms and farmers markets, making it easier to buy fresh, organic produce directly from local producers. 
+We believe that Canadians are struggling with the ongoing tariff trade war. Thus, we created an app where it helps you discover nearby farms and farmers markets, making it easier to buy fresh, organic produce directly from local producers. 
 
 ## ⚙️ Features
 * An interactive UI to prompt user for Canadian city and product
