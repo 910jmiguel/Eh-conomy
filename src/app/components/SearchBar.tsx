@@ -3,6 +3,7 @@ import { Search } from "lucide-react";
 import { Button } from "@/ShadComponents/ui/button";
 import { Input } from "@/ShadComponents/ui/input";
 import { ontarioCities } from "@/constants/ontarioCities"; 
+import { useRouter } from "next/navigation";
 
 const SearchBar = () => {
   const [city, setCity] = useState("");
@@ -30,9 +31,16 @@ const SearchBar = () => {
     setShowSuggestions(false);
   };
 
+  const router = useRouter();
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    document.getElementById('map')?.scrollIntoView({ behavior: 'smooth' });
+    if (city || product) {
+      const searchParams = new URLSearchParams();
+      if (city) searchParams.set('city', city);
+      if (product) searchParams.set('product', product);
+      router.push(`/list?${searchParams.toString()}`);
+    }
   };
 
   return (

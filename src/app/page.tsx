@@ -2,8 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/ShadComponents/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/ShadComponents/ui/carousel";
 import SearchBar from "./components/SearchBar";
+import { Card, CardContent } from "@/ShadComponents/ui/card";
+import { team } from "@/constants/team";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const containerStyle = {
   width: "100%",
@@ -19,7 +28,7 @@ export default function Home() {
   const images = [
     "/carouselpic1.png",
     "/carouselpic2.png",
-    "/carouselpic3.png"
+    "/carouselpic3.png",
   ];
 
   // State for tracking the current image index
@@ -114,7 +123,9 @@ export default function Home() {
       {/* Map Section */}
       <section id="map" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">Find Local Farms</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Find Local Farms
+          </h2>
 
           {/* Google Maps Embed */}
           <div className="flex justify-center">
@@ -125,7 +136,7 @@ export default function Home() {
               style={{ border: 0 }}
               loading="lazy"
               allowFullScreen
-              src={`https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}`}
+              src={`https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=AIzaSyBeEfM6HLUgbUwEETtMk8c_iqqMC4ggv68`}
             ></iframe>
           </div>
         </div>
@@ -137,8 +148,8 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">Credits</h2>
           <div className="text-center">
             <p className="text-lg text-gray-700 mb-4">
-              Built with ❤️ to support Canadian agriculture and economy by{" "}
-              Ayla, Miguel, Raghav, and James!
+              Built with ❤️ to support Canadian agriculture and economy by Ayla,
+              Miguel, Raghav, and James!
             </p>
             <p className="text-gray-600">Map data from Google Maps</p>
           </div>
