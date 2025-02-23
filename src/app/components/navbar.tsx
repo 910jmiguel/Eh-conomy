@@ -2,7 +2,6 @@
 
 import { MapPin, Home, Info, Star } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
-import Image from 'next/image';
 
 export function Navbar() {
   return (
@@ -18,7 +17,8 @@ export function Navbar() {
               duration={500}
               className="flex items-center cursor-pointer group"
             >
-              <Image src="/ehconomy-nb.png" alt="Logo" width={200} height={40} />
+              <MapPin className="h-8 w-8 text-red-600 transition-transform group-hover:scale-110" />
+              <span className="ml-2 text-xl font-bold text-gray-900">Eh-conomy</span>
             </ScrollLink>
           </div>
           <div className="flex items-center space-x-8">

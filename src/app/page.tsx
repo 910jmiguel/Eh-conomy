@@ -9,7 +9,6 @@ const containerStyle = {
   width: "100%",
   height: "500px",
 };
-
 const center = {
   lat: 43.6532,
   lng: -79.3832,
@@ -114,33 +113,20 @@ export default function Home() {
       {/* Map Section */}
       <section id="map" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Find Local Farms
-          </h2>
-          {process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ? (
-            <LoadScript
-              googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}
-            >
-              <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={center}
-                zoom={10}
-              >
-                <Marker position={center} />
-              </GoogleMap>
-            </LoadScript>
-          ) : (
-            <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-              <div className="flex">
-                <div className="ml-3">
-                  <p className="text-sm text-yellow-700">
-                    Please add your Google Maps API key to the .env file to
-                    enable the map.
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
+          <h2 className="text-3xl font-bold text-center mb-12">Find Local Farms</h2>
+
+          {/* Google Maps Embed */}
+          <div className="flex justify-center">
+            <iframe
+              className="w-full max-w-4xl h-96 rounded-lg shadow-lg"
+              width="600"
+              height="450"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              src={"https://www.google.com/maps/embed/v1/search?q=Ontario%20Farms&key=AIzaSyBeEfM6HLUgbUwEETtMk8c_iqqMC4ggv68"}
+            ></iframe>
+          </div>
         </div>
       </section>
 
