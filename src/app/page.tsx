@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import { Libraries } from "@googlemaps/js-api-loader";
 import {
   Carousel,
   CarouselContent,
@@ -15,23 +16,29 @@ import { team } from "@/constants/team";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Image from "next/image";
 
+const libraries: Libraries = ["places"];
+
 const containerStyle = {
   width: "100%",
   height: "500px",
 };
-const center = {
-  lat: 43.6532,
-  lng: -79.3832,
-};
 
 export default function Home() {
+  const [center, setCenter] = useState({
+    lat: 43.6532,
+    lng: -79.3832,
+  });
+  const [markers, setMarkers] = useState<google.maps.LatLngLiteral[]>([]);
   // Define carousel images
   const images = [
     "/carouselpic1.png",
     "/carouselpic2.png",
     "/carouselpic3.png",
   ];
-
+  console.log(
+    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY",
+    process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+  );
   // State for tracking the current image index
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -152,19 +159,22 @@ export default function Home() {
             <p className="text-lg text-gray-700">
               Built with ❤️ to support Canadian agriculture and economy!
               <br></br>
-              This project was created as part of HackCanada 2025, hosted at Wilfrid Laurier University, Waterloo, ON.
+              This project was created as part of HackCanada 2025, hosted at
+              Wilfrid Laurier University, Waterloo, ON.
             </p>
+            <Image src="/group.jpg" alt="group photo" width={600} height={200} className="mx-auto pt-5" />
           </div>
+         
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {team.map((member, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="aspect-square mb-4 overflow-hidden rounded-lg relative">
-                    <Image 
-                      src={member.image} 
+                    <Image
+                      src={member.image}
                       alt={member.name}
                       fill
-                      style={{ objectFit: 'cover' }}
+                      style={{ objectFit: "cover" }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                       priority={index < 4}
                     />
@@ -172,7 +182,7 @@ export default function Home() {
                   <h3 className="font-semibold text-lg mb-1">{member.name}</h3>
                   <p className="text-gray-600 mb-4">{member.school}</p>
                   <div className="flex justify-center gap-4">
-                    <a 
+                    <a
                       href={member.socials.github}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -180,7 +190,7 @@ export default function Home() {
                     >
                       <FaGithub size={24} />
                     </a>
-                    <a 
+                    <a
                       href={member.socials.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"

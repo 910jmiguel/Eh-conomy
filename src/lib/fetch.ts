@@ -1,6 +1,24 @@
 import { db } from "./firebaseConfig";
 import { collection, query, where, getDocs } from "firebase/firestore";
 
+// Calculate distance between two points using Haversine formula
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371; // Earth's radius in kilometers
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
+
+interface Location {
+  lat: number;
+  lng: number;
+}
+
 // Define Firestore document structure
 interface Farm {
   id: string;
@@ -16,7 +34,7 @@ interface Farm {
   website: string | null;
 }
 
-async function fetchData(city?: string, product?: string, collectionName = "collection1"): Promise<Farm[]> {
+async function fetchData(region?: string, product?: string, location?: Location, collectionName = "collection1"): Promise<Farm[]> {
   try {
     const collectionRef = collection(db, collectionName);
     
@@ -24,11 +42,11 @@ async function fetchData(city?: string, product?: string, collectionName = "coll
     let q = query(collectionRef);
     
     // Add filters if provided
-    if (city) {
-      const cityLower = city.toLowerCase();
+    if (region) {
+      const regionLower = region.toLowerCase();
       q = query(collectionRef, 
-        where('address', '>=', cityLower),
-        where('address', '<', cityLower + '\uf8ff')
+        where('address', '>=', regionLower),
+        where('address', '<', regionLower + '\uf8ff')
       );
     }
 
@@ -38,14 +56,24 @@ async function fetchData(city?: string, product?: string, collectionName = "coll
     for (const doc of querySnapshot.docs) {
       const data = doc.data();
       
-      // Filter by city if provided
-      if (city && !data.address?.toLowerCase().includes(city.toLowerCase())) {
+      // Apply filters
+      if (region && !data.address?.toLowerCase().includes(region.toLowerCase())) {
         continue;
       }
 
-      // Filter by product if provided
       if (product && !data.products?.toLowerCase().includes(product.toLowerCase())) {
         continue;
+      }
+
+      // If location is provided, calculate distance and filter within 50km radius
+      if (location && data.latitude && data.longitude) {
+        const distance = calculateDistance(
+          location.lat,
+          location.lng,
+          parseFloat(data.latitude),
+          parseFloat(data.longitude)
+        );
+        if (distance > 50) continue; // Skip if further than 50km
       }
 
       // Map Firestore data to Farm interface with all required fields

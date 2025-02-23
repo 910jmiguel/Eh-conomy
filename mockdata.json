@@ -1,0 +1,130 @@
+{
+    "cities": [
+      {
+        "id": 1,
+        "name": "Toronto",
+        "province": "Ontario",
+        "latitude": 43.6532,
+        "longitude": -79.3832
+      },
+      {
+        "id": 2,
+        "name": "Ottawa",
+        "province": "Ontario",
+        "latitude": 45.4215,
+        "longitude": -75.6972
+      },
+      {
+        "id": 3,
+        "name": "Mississauga",
+        "province": "Ontario",
+        "latitude": 43.5904,
+        "longitude": -79.6443
+      },
+      {
+        "id": 4,
+        "name": "Brampton",
+        "province": "Ontario",
+        "latitude": 43.6532,
+        "longitude": -79.7553
+      },
+      {
+        "id": 5,
+        "name": "Hamilton",
+        "province": "Ontario",
+        "latitude": 43.2557,
+        "longitude": -79.8711
+      },
+      {
+        "id": 6,
+        "name": "London",
+        "province": "Ontario",
+        "latitude": 42.9839,
+        "longitude": -81.2467
+      },
+      {
+        "id": 7,
+        "name": "Markham",
+        "province": "Ontario",
+        "latitude": 43.8543,
+        "longitude": -79.3268
+      },
+      {
+        "id": 8,
+        "name": "Vaughan",
+        "province": "Ontario",
+        "latitude": 43.8372,
+        "longitude": -79.4563
+      },
+      {
+        "id": 9,
+        "name": "Windsor",
+        "province": "Ontario",
+        "latitude": 42.3159,
+        "longitude": -83.0364
+      },
+      {
+        "id": 10,
+        "name": "Kitchener",
+        "province": "Ontario",
+        "latitude": 43.4543,
+        "longitude": -80.4897
+      }
+    ],
+    "farms": [
+      {
+        "id": 1,
+        "name": "Greenview Farm",
+        "cityId": 1,
+        "address": "1235 Finch Ave W, Toronto, ON M3J 2E6",
+        "description": "Fresh produce and dairy products",
+        "latitude": 43.7632,
+        "longitude": -79.4563
+      },
+      {
+        "id": 2,
+        "name": "Riverview Farm",
+        "cityId": 2,
+        "address": "4560 Bank St, Ottawa, ON K1T 3W7",
+        "description": "Organic fruits and vegetables",
+        "latitude": 45.4215,
+        "longitude": -75.6972
+      },
+      {
+        "id": 3,
+        "name": "Creekside Farm",
+        "cityId": 3,
+        "address": "7890 Mavis Rd, Mississauga, ON L5V 2X5",
+        "description": "Fresh produce and baked goods",
+        "latitude": 43.5904,
+        "longitude": -79.6443
+      },
+      {
+        "id": 4,
+        "name": "Maple Ridge Farm",
+        "cityId": 4,
+        "address": "9010 Queen St E, Brampton, ON L6W 2P7",
+        "description": "Fresh produce and meats",
+        "latitude": 43.6532,
+        "longitude": -79.7553
+      },
+      {
+        "id": 5,
+        "name": "Hamilton Farm",
+        "cityId": 5,
+        "address": "2345 Upper James St, Hamilton, ON L9C 3B6",
+        "description": "Fresh produce and dairy products",
+        "latitude": 43.2557,
+        "longitude": -79.8711
+      },
+      {
+        "id": 6,
+        "name": "London Farm",
+        "cityId": 6,
+        "address": "3456 Dundas St E, London, ON N5V 1V9",
+        "description": "Organic fruits and vegetables",
+        "latitude": 42.9839,
+        "longitude": -81.2467
+      }
+    ]
+  }  
