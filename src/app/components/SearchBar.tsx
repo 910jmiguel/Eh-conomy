@@ -42,7 +42,13 @@ const SearchBar = () => {
       />
 
       {showSuggestions && (
-        <ul className="absolute bg-white border shadow-md p-2 w-full">
+        <ul className="absolute bg-white border shadow-md p-2 w-full max-h-20 max-w-40 overflow-y-auto"
+        style={{
+          maxHeight: '150px',
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'gray',
+        }}
+        >
           {suggestions.map((suggestion) => (
             <li
               key={suggestion}
